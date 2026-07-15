@@ -25,9 +25,14 @@ export type VideoMedia = {
 export type MediaHeroMedia = ImageMedia | VideoMedia;
 
 export const heroMedia: MediaHeroMedia = {
-  type: "image",
-  src: "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=2400&q=88",
-  priority: true,
+  type: "video",
+  poster: "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=2400&q=88",
+  mp4Src: "/videos/hero.mp4",
+  autoPlay: true,
+  muted: true,
+  loop: true,
+  playsInline: true,
+  lazy: true,
   sizes: "100vw"
 };
 
