@@ -64,7 +64,7 @@ export const MediaHero = forwardRef<HTMLDivElement, MediaHeroProps>(
           {media.type === "image" ? (
             <Image
               src={media.src}
-              alt={media.alt}
+              alt={media.alt ?? ""}
               fill
               priority={media.priority}
               loading={media.priority ? undefined : media.loading}
@@ -75,7 +75,7 @@ export const MediaHero = forwardRef<HTMLDivElement, MediaHeroProps>(
             <>
               <Image
                 src={media.poster}
-                alt={media.alt}
+                alt={media.alt ?? ""}
                 fill
                 loading="lazy"
                 sizes={media.sizes ?? "100vw"}
@@ -83,7 +83,7 @@ export const MediaHero = forwardRef<HTMLDivElement, MediaHeroProps>(
               />
               {shouldLoadVideo ? (
                 <video
-                  aria-label={media.alt}
+                  aria-label={media.alt ?? undefined}
                   autoPlay={media.autoPlay ?? true}
                   muted={media.muted ?? true}
                   loop={media.loop ?? true}

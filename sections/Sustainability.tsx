@@ -1,16 +1,20 @@
+"use client";
+
 import { Leaf } from "lucide-react";
 import { Container } from "@/components/Container";
 import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/Button";
-import { sustainabilityPillars } from "@/lib/content";
 import { MediaHero } from "@/components/MediaHero";
+import { useTranslations } from "@/hooks/useTranslations";
 import { sustainabilityMedia } from "@/lib/media";
 
 export function Sustainability() {
+  const { t } = useTranslations();
+
   return (
     <section className="relative overflow-hidden bg-background">
       <MediaHero
-        media={sustainabilityMedia}
+        media={{ ...sustainabilityMedia, alt: t.media.sustainabilityAlt }}
         className="absolute inset-0"
         imageClassName="object-cover opacity-50"
       >
@@ -26,19 +30,17 @@ export function Sustainability() {
                   <Leaf className="h-5 w-5" aria-hidden="true" />
                 </span>
                 <p className="text-xs font-bold uppercase tracking-[0.28em] text-accent">
-                  Sustainability
+                  {t.sustainability.eyebrow}
                 </p>
               </div>
               <h2 className="text-balance text-4xl font-semibold leading-[1.04] text-white sm:text-6xl">
-                Infrastructure that strengthens economies without borrowing from the future.
+                {t.sustainability.title}
               </h2>
               <p className="mt-7 max-w-2xl text-base leading-8 text-white/72 sm:text-lg">
-                ESG is embedded in project selection, procurement, delivery and operations. We
-                prioritize lower-carbon systems, resilient communities and transparent reporting
-                across the asset lifecycle.
+                {t.sustainability.copy}
               </p>
               <div className="mt-10 grid gap-3 sm:grid-cols-2">
-                {sustainabilityPillars.map((pillar) => (
+                {t.sustainability.pillars.map((pillar) => (
                   <div key={pillar} className="border border-white/12 bg-white/[0.035] p-4">
                     <p className="text-sm font-semibold text-white/86">{pillar}</p>
                   </div>
@@ -46,7 +48,7 @@ export function Sustainability() {
               </div>
               <div className="mt-10">
                 <Button href="#contact" variant="secondary">
-                  ESG Approach
+                  {t.buttons.esgApproach}
                 </Button>
               </div>
             </div>

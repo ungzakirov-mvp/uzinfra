@@ -1,25 +1,29 @@
+"use client";
+
 import { Mail, MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeader } from "@/components/SectionHeader";
-import { contactDetails } from "@/lib/content";
+import { useTranslations } from "@/hooks/useTranslations";
 
 const icons = [MapPin, Mail, Phone];
 
 export function Contact() {
+  const { t } = useTranslations();
+
   return (
     <section id="contact" className="section-padding bg-background">
       <Container>
         <div className="container-grid">
           <Reveal className="col-span-12 lg:col-span-5">
             <SectionHeader
-              eyebrow="Contact"
-              title="Begin a strategic infrastructure conversation."
-              copy="For partnerships, project origination, investor relations or media inquiries, contact the UZINFRA office in Tashkent."
+              eyebrow={t.contact.eyebrow}
+              title={t.contact.title}
+              copy={t.contact.copy}
             />
             <div className="mt-10 grid gap-5">
-              {contactDetails.map((detail, index) => {
+              {t.contact.details.map((detail, index) => {
                 const Icon = icons[index];
                 return (
                   <div key={detail} className="flex items-center gap-4 text-white/78">
@@ -37,7 +41,7 @@ export function Contact() {
                 <div className="absolute left-1/2 top-1/2 h-28 w-28 -translate-x-1/2 -translate-y-1/2 border border-accent/50" />
                 <div className="absolute left-1/2 top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 bg-accent" />
                 <p className="absolute bottom-5 left-5 text-xs font-bold uppercase tracking-[0.22em] text-white/58">
-                  Tashkent Headquarters
+                  {t.media.mapLabel}
                 </p>
               </div>
             </div>
@@ -48,22 +52,22 @@ export function Contact() {
               <div className="grid gap-6 sm:grid-cols-2">
                 <label className="grid gap-3">
                   <span className="text-xs font-bold uppercase tracking-[0.22em] text-white/62">
-                    Name
+                    {t.contact.form.name}
                   </span>
                   <input
                     className="h-13 border border-white/12 bg-background px-4 text-white outline-none transition placeholder:text-white/30 focus:border-accent"
-                    placeholder="Your name"
+                    placeholder={t.contact.form.namePlaceholder}
                     type="text"
                     name="name"
                   />
                 </label>
                 <label className="grid gap-3">
                   <span className="text-xs font-bold uppercase tracking-[0.22em] text-white/62">
-                    Email
+                    {t.contact.form.email}
                   </span>
                   <input
                     className="h-13 border border-white/12 bg-background px-4 text-white outline-none transition placeholder:text-white/30 focus:border-accent"
-                    placeholder="you@company.com"
+                    placeholder={t.contact.form.emailPlaceholder}
                     type="email"
                     name="email"
                   />
@@ -71,27 +75,29 @@ export function Contact() {
               </div>
               <label className="mt-6 grid gap-3">
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-white/62">
-                  Organization
+                  {t.contact.form.organization}
                 </span>
                 <input
                   className="h-13 border border-white/12 bg-background px-4 text-white outline-none transition placeholder:text-white/30 focus:border-accent"
-                  placeholder="Company or institution"
+                  placeholder={t.contact.form.organizationPlaceholder}
                   type="text"
                   name="organization"
                 />
               </label>
               <label className="mt-6 grid gap-3">
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-white/62">
-                  Inquiry
+                  {t.contact.form.inquiry}
                 </span>
                 <textarea
                   className="min-h-40 resize-y border border-white/12 bg-background p-4 text-white outline-none transition placeholder:text-white/30 focus:border-accent"
-                  placeholder="Tell us about your project or partnership inquiry"
+                  placeholder={t.contact.form.inquiryPlaceholder}
                   name="message"
                 />
               </label>
               <div className="mt-8">
-                <Button href="mailto:partnerships@uzinfra.com">Submit Inquiry</Button>
+                <Button href="mailto:partnerships@uzinfra.com">
+                  {t.buttons.submitInquiry}
+                </Button>
               </div>
             </form>
           </Reveal>

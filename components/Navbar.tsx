@@ -4,11 +4,14 @@ import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
+import { localeOptions } from "@/locales";
 import { navItems } from "@/lib/content";
+import { useTranslations } from "@/hooks/useTranslations";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { locale, setLocale, t } = useTranslations();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -26,12 +29,14 @@ export function Navbar() {
       }`}
     >
       <Container>
-        <nav className="flex h-20 items-center justify-between" aria-label="Primary navigation">
-          <a href="#top" className="group flex items-center gap-3" aria-label="UZINFRA home">
+        <nav className="flex h-20 items-center justify-between" aria-label={t.nav.primary}>
+          <a href="#top" className="group flex items-center gap-3" aria-label={t.brand.home}>
             <span className="grid h-10 w-10 place-items-center border border-accent/70 text-sm font-extrabold text-accent transition group-hover:bg-accent group-hover:text-background">
-              U
+              {t.brand.name.charAt(0)}
             </span>
-            <span className="text-lg font-extrabold tracking-[0.22em] text-white">UZINFRA</span>
+            <span className="text-lg font-extrabold tracking-[0.22em] text-white">
+              {t.brand.name}
+            </span>
           </a>
 
           <div className="hidden items-center gap-8 lg:flex">
@@ -41,21 +46,42 @@ export function Navbar() {
                 href={item.href}
                 className="text-xs font-semibold uppercase tracking-[0.18em] text-white/72 transition hover:text-white"
               >
-                {item.label}
+                {t.nav.items[item.key]}
               </a>
             ))}
           </div>
 
-          <div className="hidden lg:block">
+          <div className="hidden items-center gap-5 lg:flex">
+            <div
+              className="flex items-center gap-2 text-[0.68rem] font-bold uppercase tracking-[0.18em] text-white/46"
+              aria-label={t.language.label}
+            >
+              {localeOptions.map((option, index) => (
+                <span key={option.code} className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    aria-label={`${t.language.switchTo} ${t.language.names[option.code]}`}
+                    aria-pressed={locale === option.code}
+                    onClick={() => setLocale(option.code)}
+                    className={`transition hover:text-white ${
+                      locale === option.code ? "text-accent" : "text-white/46"
+                    }`}
+                  >
+                    {t.language.options[option.code]}
+                  </button>
+                  {index < localeOptions.length - 1 ? <span aria-hidden="true">|</span> : null}
+                </span>
+              ))}
+            </div>
             <Button href="#contact" variant="secondary" className="min-h-10 px-4 text-[0.68rem]">
-              Inquire
+              {t.buttons.inquire}
             </Button>
           </div>
 
           <button
             type="button"
             className="grid h-11 w-11 place-items-center border border-white/15 text-white transition hover:border-accent hover:text-accent lg:hidden"
-            aria-label={open ? "Close navigation" : "Open navigation"}
+            aria-label={open ? t.nav.close : t.nav.open}
             aria-expanded={open}
             onClick={() => setOpen((value) => !value)}
           >
@@ -78,9 +104,34 @@ export function Navbar() {
                 onClick={() => setOpen(false)}
                 className="border-b border-white/8 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-white/80"
               >
-                {item.label}
+                {t.nav.items[item.key]}
               </a>
             ))}
+            <div
+              className="flex items-center gap-3 py-4 text-xs font-bold uppercase tracking-[0.2em]"
+              aria-label={t.language.label}
+            >
+              {localeOptions.map((option, index) => (
+                <span key={option.code} className="flex items-center gap-3">
+                  <button
+                    type="button"
+                    aria-label={`${t.language.switchTo} ${t.language.names[option.code]}`}
+                    aria-pressed={locale === option.code}
+                    onClick={() => setLocale(option.code)}
+                    className={`transition hover:text-white ${
+                      locale === option.code ? "text-accent" : "text-white/50"
+                    }`}
+                  >
+                    {t.language.options[option.code]}
+                  </button>
+                  {index < localeOptions.length - 1 ? (
+                    <span className="text-white/30" aria-hidden="true">
+                      |
+                    </span>
+                  ) : null}
+                </span>
+              ))}
+            </div>
           </div>
         </Container>
       </div>

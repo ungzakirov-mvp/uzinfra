@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
+import { LocaleProvider } from "@/components/LocaleProvider";
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
+import { ru } from "@/locales/ru";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://uzinfra.com"),
   title: {
-    default: "UZINFRA | Strategic Infrastructure Across Central Asia",
+    default: ru.meta.title,
     template: "%s | UZINFRA"
   },
-  description:
-    "UZINFRA delivers strategic infrastructure solutions across Central Asia through engineering excellence, sustainable development and long-term partnerships.",
+  description: ru.meta.description,
   keywords: [
     "UZINFRA",
     "infrastructure",
@@ -21,9 +22,8 @@ export const metadata: Metadata = {
     "digital infrastructure"
   ],
   openGraph: {
-    title: "UZINFRA | Building Tomorrow's Infrastructure",
-    description:
-      "Premium infrastructure development, engineering and investment capability for Central Asia's long-term growth.",
+    title: ru.meta.title,
+    description: ru.meta.description,
     url: "https://uzinfra.com",
     siteName: "UZINFRA",
     images: [
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
         url: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=85",
         width: 1600,
         height: 900,
-        alt: "Large-scale infrastructure landscape at dusk"
+        alt: ru.media.heroAlt
       }
     ],
     locale: "en_US",
@@ -39,9 +39,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "UZINFRA | Building Tomorrow's Infrastructure",
-    description:
-      "Strategic infrastructure solutions delivered with engineering excellence and international standards."
+    title: ru.meta.title,
+    description: ru.meta.description
   }
 };
 
@@ -56,15 +55,14 @@ export default function RootLayout({
     name: "UZINFRA",
     url: "https://uzinfra.com",
     logo: "https://uzinfra.com/logo.svg",
-    description:
-      "Strategic infrastructure development company delivering transport, energy, industrial, water and digital infrastructure across Central Asia.",
+    description: ru.meta.description,
     areaServed: "Central Asia",
     email: "partnerships@uzinfra.com",
     telephone: "+998 78 000 00 00"
   };
 
   return (
-    <html lang="en">
+    <html lang="ru">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -78,7 +76,9 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <SmoothScrollProvider>{children}</SmoothScrollProvider>
+        <LocaleProvider>
+          <SmoothScrollProvider>{children}</SmoothScrollProvider>
+        </LocaleProvider>
       </body>
     </html>
   );

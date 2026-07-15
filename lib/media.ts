@@ -1,7 +1,7 @@
 export type ImageMedia = {
   type: "image";
   src: string;
-  alt: string;
+  alt?: string;
   priority?: boolean;
   sizes?: string;
   loading?: "eager" | "lazy";
@@ -9,7 +9,7 @@ export type ImageMedia = {
 
 export type VideoMedia = {
   type: "video";
-  alt: string;
+  alt?: string;
   poster: string;
   mp4Src?: string;
   webmSrc?: string;
@@ -27,7 +27,6 @@ export type MediaHeroMedia = ImageMedia | VideoMedia;
 export const heroMedia: MediaHeroMedia = {
   type: "image",
   src: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=2400&q=88",
-  alt: "Cinematic aerial view of large-scale urban infrastructure",
   priority: true,
   sizes: "100vw"
 };
@@ -35,13 +34,11 @@ export const heroMedia: MediaHeroMedia = {
 export const sustainabilityMedia: MediaHeroMedia = {
   type: "image",
   src: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=2200&q=85",
-  alt: "Renewable energy infrastructure at sunset",
   sizes: "100vw"
 };
 
 export const careersMedia: MediaHeroMedia = {
   type: "image",
   src: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1800&q=84",
-  alt: "Infrastructure professionals in a strategic project meeting",
   sizes: "100vw"
 };
