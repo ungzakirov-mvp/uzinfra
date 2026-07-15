@@ -1,0 +1,102 @@
+import { Mail, MapPin, Phone } from "lucide-react";
+import { Button } from "@/components/Button";
+import { Container } from "@/components/Container";
+import { Reveal } from "@/components/Reveal";
+import { SectionHeader } from "@/components/SectionHeader";
+import { contactDetails } from "@/lib/content";
+
+const icons = [MapPin, Mail, Phone];
+
+export function Contact() {
+  return (
+    <section id="contact" className="section-padding bg-background">
+      <Container>
+        <div className="container-grid">
+          <Reveal className="col-span-12 lg:col-span-5">
+            <SectionHeader
+              eyebrow="Contact"
+              title="Begin a strategic infrastructure conversation."
+              copy="For partnerships, project origination, investor relations or media inquiries, contact the UZINFRA office in Tashkent."
+            />
+            <div className="mt-10 grid gap-5">
+              {contactDetails.map((detail, index) => {
+                const Icon = icons[index];
+                return (
+                  <div key={detail} className="flex items-center gap-4 text-white/78">
+                    <span className="grid h-11 w-11 place-items-center border border-white/12 text-accent">
+                      <Icon className="h-5 w-5" aria-hidden="true" />
+                    </span>
+                    <span className="text-sm leading-6">{detail}</span>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="mt-10 h-72 border border-white/10 bg-background-secondary p-5">
+              <div className="relative h-full overflow-hidden border border-white/8 bg-[linear-gradient(135deg,rgba(200,154,69,0.12),rgba(255,255,255,0.02))]">
+                <div className="noise-overlay" />
+                <div className="absolute left-1/2 top-1/2 h-28 w-28 -translate-x-1/2 -translate-y-1/2 border border-accent/50" />
+                <div className="absolute left-1/2 top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 bg-accent" />
+                <p className="absolute bottom-5 left-5 text-xs font-bold uppercase tracking-[0.22em] text-white/58">
+                  Tashkent Headquarters
+                </p>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal className="col-span-12 lg:col-span-6 lg:col-start-7" delay={0.12}>
+            <form className="border border-white/10 bg-background-secondary p-6 sm:p-10">
+              <div className="grid gap-6 sm:grid-cols-2">
+                <label className="grid gap-3">
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] text-white/62">
+                    Name
+                  </span>
+                  <input
+                    className="h-13 border border-white/12 bg-background px-4 text-white outline-none transition placeholder:text-white/30 focus:border-accent"
+                    placeholder="Your name"
+                    type="text"
+                    name="name"
+                  />
+                </label>
+                <label className="grid gap-3">
+                  <span className="text-xs font-bold uppercase tracking-[0.22em] text-white/62">
+                    Email
+                  </span>
+                  <input
+                    className="h-13 border border-white/12 bg-background px-4 text-white outline-none transition placeholder:text-white/30 focus:border-accent"
+                    placeholder="you@company.com"
+                    type="email"
+                    name="email"
+                  />
+                </label>
+              </div>
+              <label className="mt-6 grid gap-3">
+                <span className="text-xs font-bold uppercase tracking-[0.22em] text-white/62">
+                  Organization
+                </span>
+                <input
+                  className="h-13 border border-white/12 bg-background px-4 text-white outline-none transition placeholder:text-white/30 focus:border-accent"
+                  placeholder="Company or institution"
+                  type="text"
+                  name="organization"
+                />
+              </label>
+              <label className="mt-6 grid gap-3">
+                <span className="text-xs font-bold uppercase tracking-[0.22em] text-white/62">
+                  Inquiry
+                </span>
+                <textarea
+                  className="min-h-40 resize-y border border-white/12 bg-background p-4 text-white outline-none transition placeholder:text-white/30 focus:border-accent"
+                  placeholder="Tell us about your project or partnership inquiry"
+                  name="message"
+                />
+              </label>
+              <div className="mt-8">
+                <Button href="mailto:partnerships@uzinfra.com">Submit Inquiry</Button>
+              </div>
+            </form>
+          </Reveal>
+        </div>
+      </Container>
+    </section>
+  );
+}
