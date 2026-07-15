@@ -25,7 +25,7 @@ export function Navbar() {
       className={`fixed inset-x-0 top-0 z-50 transition duration-500 ${
         scrolled || open
           ? "border-b border-[#dfe8de] bg-white/92 backdrop-blur-xl"
-          : "border-b border-transparent bg-transparent"
+          : "border-b border-white/10 bg-black/[0.08] backdrop-blur-[2px]"
       }`}
     >
       <Container>
@@ -36,7 +36,9 @@ export function Navbar() {
             </span>
             <span
               className={`text-lg font-extrabold tracking-[0.22em] transition ${
-                scrolled || open ? "text-[#17221c]" : "text-white"
+                scrolled || open
+                  ? "text-[#17221c]"
+                  : "text-white [text-shadow:0_2px_10px_rgba(0,0,0,.45)]"
               }`}
             >
               {t.brand.name}
@@ -51,7 +53,7 @@ export function Navbar() {
                 className={`text-xs font-semibold uppercase tracking-[0.18em] transition ${
                   scrolled || open
                     ? "text-[#425047] hover:text-[#17221c]"
-                    : "text-white/78 hover:text-white"
+                    : "text-white/90 [text-shadow:0_2px_10px_rgba(0,0,0,.45)] hover:text-white"
                 }`}
               >
                 {t.nav.items[item.key]}
@@ -62,7 +64,7 @@ export function Navbar() {
           <div className="hidden items-center gap-5 lg:flex">
             <div
               className={`flex items-center gap-2 text-[0.68rem] font-bold uppercase tracking-[0.18em] ${
-                scrolled || open ? "text-[#7b877f]" : "text-white/52"
+                scrolled || open ? "text-[#7b877f]" : "text-white/78 [text-shadow:0_2px_10px_rgba(0,0,0,.42)]"
               }`}
               aria-label={t.language.label}
             >
@@ -75,7 +77,7 @@ export function Navbar() {
                     onClick={() => setLocale(option.code)}
                     className={`transition ${
                       scrolled || open ? "hover:text-[#17221c]" : "hover:text-white"
-                    } ${locale === option.code ? "text-accent" : scrolled || open ? "text-[#7b877f]" : "text-white/52"
+                    } ${locale === option.code ? "text-accent" : scrolled || open ? "text-[#7b877f]" : "text-white/82"
                     }`}
                   >
                     {t.language.options[option.code]}
@@ -102,7 +104,7 @@ export function Navbar() {
             className={`grid h-11 w-11 place-items-center border transition hover:border-accent hover:text-accent lg:hidden ${
               scrolled || open
                 ? "border-[#dfe8de] text-[#17221c]"
-                : "border-white/20 text-white"
+                : "border-white/35 text-white [text-shadow:0_2px_10px_rgba(0,0,0,.45)]"
             }`}
             aria-label={open ? t.nav.close : t.nav.open}
             aria-expanded={open}
