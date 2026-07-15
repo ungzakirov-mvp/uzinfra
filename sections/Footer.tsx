@@ -9,7 +9,7 @@ export function Footer() {
   const { t } = useTranslations();
 
   return (
-    <footer className="border-t border-white/10 bg-background-secondary">
+    <footer className="border-t border-white/10 bg-[#13251d]">
       <Container>
         <div className="grid gap-10 py-12 lg:grid-cols-[1fr_2fr] lg:py-16">
           <div>
@@ -21,7 +21,7 @@ export function Footer() {
                 {t.brand.name}
               </span>
             </a>
-            <p className="mt-6 max-w-sm text-sm leading-7 text-muted">
+            <p className="mt-6 max-w-sm text-sm leading-7 text-white/62">
               {t.footer.copy}
             </p>
           </div>

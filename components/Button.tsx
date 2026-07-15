@@ -14,11 +14,11 @@ export function Button({
 }: ButtonProps) {
   const variants = {
     primary:
-      "border-accent/70 bg-accent text-background hover:border-white hover:bg-white",
+      "border-accent/70 bg-accent text-[#10251c] hover:border-white hover:bg-white",
     secondary:
       "border-white/25 bg-transparent text-white hover:border-accent hover:text-accent",
     ghost:
-      "border-transparent bg-transparent text-white hover:border-white/20 hover:bg-white/[0.04]"
+      "border-transparent bg-transparent text-[#17221c] hover:border-accent hover:bg-white/50 hover:text-accent"
   };
 
   return (

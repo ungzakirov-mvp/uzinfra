@@ -11,7 +11,7 @@ export function Sectors() {
   const { t } = useTranslations();
 
   return (
-    <section id="sectors" className="section-padding bg-background-secondary">
+    <section id="sectors" className="section-padding bg-[#eef4ee]">
       <Container>
         <Reveal>
           <SectionHeader
@@ -21,21 +21,21 @@ export function Sectors() {
           />
         </Reveal>
 
-        <div className="mt-16 grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-16 grid gap-px overflow-hidden border border-[#dbe6db] bg-[#dbe6db] md:grid-cols-2 xl:grid-cols-3">
           {sectors.map((sector, index) => {
             const Icon = sector.icon;
             const item = t.sectors.items[sector.key];
             return (
               <Reveal key={sector.key} delay={index * 0.05}>
-                <article className="group relative min-h-[28rem] overflow-hidden bg-background">
+                <article className="group relative min-h-[28rem] overflow-hidden bg-[#17221c]">
                   <Image
                     src={sector.image}
                     alt={`${item.title} ${t.media.sectorAltSuffix}`}
                     fill
                     sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
-                    className="object-cover opacity-[0.62] transition duration-700 group-hover:scale-105 group-hover:opacity-[0.82]"
+                    className="object-cover opacity-[0.76] transition duration-700 group-hover:scale-105 group-hover:opacity-[0.92]"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/54 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#12221a]/80 via-[#12221a]/36 to-transparent" />
                   <div className="absolute inset-x-0 bottom-0 p-7 sm:p-8">
                     <Icon className="mb-7 h-8 w-8 text-accent" aria-hidden="true" />
                     <h3 className="text-2xl font-semibold text-white">{item.title}</h3>

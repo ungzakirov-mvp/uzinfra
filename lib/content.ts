@@ -44,7 +44,7 @@ export type SectorAsset = {
 export const sectors: SectorAsset[] = [
   {
     key: "infrastructureDevelopment",
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=82",
+    image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=82",
     icon: Building2
   },
   {
@@ -54,17 +54,17 @@ export const sectors: SectorAsset[] = [
   },
   {
     key: "transportation",
-    image: "https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=1200&q=82",
+    image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1200&q=82",
     icon: RailSymbol
   },
   {
     key: "industrial",
-    image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=1200&q=82",
+    image: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=1200&q=82",
     icon: Factory
   },
   {
     key: "waterSystems",
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=82",
+    image: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=82",
     icon: Waves
   },
   {
@@ -77,7 +77,7 @@ export const sectors: SectorAsset[] = [
 export const projects = [
   {
     key: "tashkentMobility",
-    image: "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1500&q=84"
+    image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1500&q=84"
   },
   {
     key: "zarafshanEnergy",
@@ -107,7 +107,7 @@ export const advantages = [
 export const news = [
   {
     key: "capitalPlatform",
-    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1000&q=82"
+    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1000&q=82"
   },
   {
     key: "esgFramework",
@@ -115,7 +115,7 @@ export const news = [
   },
   {
     key: "technicalOffice",
-    image: "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?auto=format&fit=crop&w=1000&q=82"
+    image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1000&q=82"
   }
 ] as const;
 

@@ -43,8 +43,8 @@ export function Hero() {
         media={{ ...heroMedia, alt: t.media.heroAlt }}
         className="absolute inset-0 scale-110"
       />
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,15,20,0.35)_0%,rgba(11,15,20,0.66)_55%,#0b0f14_100%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(200,154,69,0.08),transparent_34rem)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,32,24,0.12)_0%,rgba(15,32,24,0.32)_55%,rgba(247,249,244,0.9)_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(200,154,69,0.12),transparent_36rem)]" />
       <div className="noise-overlay" />
 
       <Container className="relative z-10">

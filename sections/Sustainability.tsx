@@ -12,13 +12,13 @@ export function Sustainability() {
   const { t } = useTranslations();
 
   return (
-    <section className="relative overflow-hidden bg-background">
+    <section className="relative overflow-hidden bg-[#10251c]">
       <MediaHero
         media={{ ...sustainabilityMedia, alt: t.media.sustainabilityAlt }}
         className="absolute inset-0"
-        imageClassName="object-cover opacity-50"
+        imageClassName="object-cover opacity-[0.78]"
       >
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,#0b0f14_0%,rgba(11,15,20,0.88)_42%,rgba(11,15,20,0.58)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(16,37,28,0.86)_0%,rgba(16,37,28,0.62)_42%,rgba(16,37,28,0.2)_100%)]" />
       </MediaHero>
 
       <Container className="relative z-10">
@@ -41,7 +41,7 @@ export function Sustainability() {
               </p>
               <div className="mt-10 grid gap-3 sm:grid-cols-2">
                 {t.sustainability.pillars.map((pillar) => (
-                  <div key={pillar} className="border border-white/12 bg-white/[0.035] p-4">
+                  <div key={pillar} className="border border-white/18 bg-white/[0.08] p-4">
                     <p className="text-sm font-semibold text-white/86">{pillar}</p>
                   </div>
                 ))}
